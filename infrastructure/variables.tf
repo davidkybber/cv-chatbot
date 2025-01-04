@@ -29,4 +29,24 @@ variable "tags" {
   type        = map(string)
   description = "Tags to apply to all resources"
   default     = {}
+}
+
+variable "storage_account_name" {
+  type        = string
+  description = "Name of the storage account for the Function App"
+}
+
+variable "app_service_plan_name" {
+  type        = string
+  description = "Name of the App Service Plan"
+}
+
+variable "application_insights_name" {
+  type        = string
+  description = "Name of the Application Insights instance"
+}
+
+variable "function_app_name" {
+  type        = string
+  description = "Name of the Function App"
 } 
