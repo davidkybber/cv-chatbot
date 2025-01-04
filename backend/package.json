@@ -1,7 +1,7 @@
 {
   "name": "azure-function-express",
   "version": "1.0.0",
-  "description": "Azure Function with Express.js",
+  "description": "Azure Function",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
