@@ -4,7 +4,11 @@ import app from '../shared/express-app';
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     context.log('HTTP trigger function processed a request.');
     
-    // Handle the request using Express
+    const expressReq: any = Object.assign(req, {
+        pipe: () => {},
+        header: (name: string) => req.headers?.[name.toLowerCase()],
+    });
+    
     await new Promise((resolve, reject) => {
         const mockRes: any = {
             status: (code: number) => {
@@ -27,7 +31,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
             }
         };
 
-        app(req, mockRes);
+        app(expressReq, mockRes);
     });
 };
 
