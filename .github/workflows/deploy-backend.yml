@@ -36,9 +36,6 @@ jobs:
         run: |
           cd backend
           npm run build
-          mkdir -p dist/src
-          cp host.json dist/
-          cp src/function.json dist/src/
 
       - name: Deploy to Azure Function
         uses: Azure/functions-action@v1
