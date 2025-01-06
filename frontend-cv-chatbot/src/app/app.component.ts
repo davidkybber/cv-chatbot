@@ -11,5 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'CV Chat Assistant';
+  title = "David's CV Chat Assistant";
+  repoUrl = 'https://github.com/davidkybber/cv-chatbot';
 }
