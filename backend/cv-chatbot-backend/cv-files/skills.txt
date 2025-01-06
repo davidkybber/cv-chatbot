@@ -1,0 +1,9 @@
+Programming Languages:
+- TypeScript/JavaScript
+- Python
+- Java
+
+Technologies:
+- Azure Cloud Services
+- Docker
+- Kubernetes 

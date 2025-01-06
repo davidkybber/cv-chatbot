@@ -17,5 +17,8 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/cv-chatbot-backend/index.js"
+  "scriptFile": "../dist/cv-chatbot-backend/index.js",
+  "files": [
+    "cv-files/**/*.txt"
+  ]
 }

@@ -25,13 +25,17 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: 'Resolve Project Dependencies Using Npm'
-        shell: pwsh
+      - name: 'Build and Package'
+        shell: bash
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm run build
+          # Create directory and copy files (using Windows-compatible commands)
+          mkdir -p dist/cv-chatbot-backend/cv-files
+          cp -r cv-chatbot-backend/cv-files/* dist/cv-chatbot-backend/cv-files/
+          # List contents for debugging
+          ls -la dist/cv-chatbot-backend/cv-files/
           popd
 
       - name: Upload artifact for deployment job

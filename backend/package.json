@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Azure Function",
   "scripts": {
-    "build": "tsc",
+    "prebuild": "rm -rf dist",
+    "build": "tsc && node dist/cv-chatbot-backend/copyFiles.js",
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "func start",

@@ -1,11 +1,48 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 import axios from 'axios';
+import * as fs from 'fs';
+import * as path from 'path';
 
-const CV_TEXT = `
-David is a software engineer with X years of experience. 
-He has worked on projects using Y, Z technologies. 
-David is proficient in A, B, and C, and is currently based in Germany.
-`;
+// Function to read all .txt files from a directory
+async function loadCVTexts(): Promise<string> {
+    try {
+        // Try multiple possible locations for the cv-files directory
+        const possiblePaths = [
+            path.join(__dirname, 'cv-files'),
+            path.join(process.cwd(), 'cv-files'),
+            path.join(process.cwd(), 'dist', 'cv-chatbot-backend', 'cv-files')
+        ];
+
+        let cvPath = '';
+        for (const p of possiblePaths) {
+            if (fs.existsSync(p)) {
+                cvPath = p;
+                break;
+            }
+        }
+
+        if (!cvPath) {
+            throw new Error(`CV files directory not found. Tried paths: ${possiblePaths.join(', ')}`);
+        }
+
+        console.log('Using CV files from:', cvPath);
+        const files = fs.readdirSync(cvPath);
+        const txtFiles = files.filter(file => file.endsWith('.txt'));
+        
+        let combinedText = '';
+        for (const file of txtFiles) {
+            const filePath = path.join(cvPath, file);
+            const content = fs.readFileSync(filePath, 'utf8');
+            combinedText += `=== ${file} ===\n${content}\n\n`;
+        }
+        return combinedText.trim();
+    } catch (error) {
+        console.error('Error reading CV files:', error);
+        console.error('Current directory:', __dirname);
+        console.error('Working directory:', process.cwd());
+        throw error;
+    }
+}
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
   const headers = {
@@ -29,18 +66,20 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     headers
   };
 
-  const userQuery = req.body?.query || "";
-
-  // Combine CV and user question into one prompt
-  const prompt = `
-    You are an AI assistant knowledgeable about David's career. 
-    Here is David's CV: 
-    "${CV_TEXT}"
-    The user asked: "${userQuery}"
-    Please provide a helpful and professional answer.
-  `;
-
   try {
+    // Read CV texts from the cv-files directory
+    const CV_TEXT = await loadCVTexts();
+    
+    const userQuery = req.body?.query || "";
+
+    const prompt = `
+      You are an AI assistant knowledgeable about David's career. 
+      Here is David's CV: 
+      "${CV_TEXT}"
+      The user asked: "${userQuery}"
+      Please provide a helpful and professional answer.
+    `;
+
     // Call OpenAI or Azure OpenAI Chat Completion
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",

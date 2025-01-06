@@ -1,0 +1,4 @@
+Software Engineer at Company X (2020-Present)
+- Led development of microservices architecture
+- Implemented CI/CD pipelines
+- Mentored junior developers 
