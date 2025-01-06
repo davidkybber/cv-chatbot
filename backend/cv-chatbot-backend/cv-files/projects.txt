@@ -1,0 +1,48 @@
+Tech Lead - HvS-Consulting GmbH
+The client is a German security consultancy with hundreds of clients, incl. 50% of DAX corporations. 
+To meet the increasing demand from both new and existing clients for security training, the client sought new scalable ways to offer their learning material. The new Scalable eLearning Platform was created to meet these demands. The platform is completely self service and offers e-learning, live events and phishing simulations for successful awareness raising.
+David was part of a dedicated team that successfully built a modern e-learning platform from the ground up. As part of the tech lead role, David lead the discussion of system design, solution architecture and scalability of the product. He followed Agile methodologies to deliver features rapidly, ensuring on-time delivery and continuous improvement throughout the project. As part of a small cross functional team, he also contributed on all sides of the product, from Frontend, to Backend to Infrastructure.
+
+SOFTWARE ENGINEER - MediaMarktSaturn Group
+MediaMakrtSaturn is the biggest consumer electronics specialty retail chain in Europe. The group operates more than 1000 stores and offers online shopping in over a dozen countries in Europe. 
+The projects main goal was to create a product portfolio that provided Availability, Reservations and Delivery Times to all other systems at MMS to use in their own processes. The products needed to be always available and respond with very low latency, handling millions of requests per hour. Netlight supported MMS's team to stabilize their own old monolith and to work towards a sustainable, cost-efficient and future proof application portfolio. At the same time the teams had to keep up the active product development and innovation needed to drive forward the E-Commerce at MMS.
+David joined the team as the pressure was high to deliver high value features while maintaining a monolith that had inherent errors in its software design, making maintenance and feature development a big challenge for the team. By tackling the high value business features first, while communicating with important stakeholders about future plans of the products, the team and David was able to slowly work on the most crucial technical debt while paving a way for future new services to be added to the portfolio, enabling turning off parts of the monolith and eventually the whole monolith itself.
+
+David was part of the software engineering team, but was also an important driver in changing the system landscape and improving the software engineering practices that the team had inherited from a team that had all been shifted out. Looking to improve the status quo, David initiated or joined task forces that set out to improve the current processes and fix the image of the team within the organisation. 
+
+Munich Re
+Munich Re (Münchner Rückversicherungs-Gesellschaft) is a global reinsurance company based in Munich, Germany. Founded in 1880, Munich Re became one of the world’s leading reinsurers with a broad range of clients including primary insurances in life, health, casualty, transport, aviation, space, fire and engineering business. Primary insurance operations are concentrated in the ERGO Insurance Group, a global Munich Re subsidiary company.
+The Insurance Analytics Platform aims to bridge the gap between data and business insights. Munich Re offers this service to their business customers, allowing big time savings from when data is ingested to business insights are produced. A platform is maintaned by the project to easily allow the customers to access their data. New features and improvements to the web application is continously being released by the project team to follow the needs of their customers. 
+
+DevOps Engineer
+Redesigned their processes from code being written by the developers to it being released into production. This included introducing pipelines to handle continous integration, tests to increase robustness and to lower time spent debugging. A change of cultur and way of thinking was also introduced through new processes, one being enforcing Code Reviews and PRs. 
+
+David was also responsible for streamlining many of the main processes used by business to do data-handover to the IT side. These included publishing Power BI Reports to the platform and completing database changes necessary for the data science team. 
+
+ Backend Developer
+Created new features for the Analytics Platform at the project, including a News feature to easily handle communication with their clients at scale. David was part of a two person team that redesigned the application to be both more performant and follow modern design philosophies and styles, which included changing the code architecture to follow Clean Architecture. The app performance was improved significantly by optimizing the Document queries and code structure. The process for relasing the app was improved by adding integration tests and unit tests to the code to be part of the CI/CD process, reducing time from code is developed and released. Furthermore, the Azure cloud structure and setup was optimized to handle the new designs related to his work with the Web Application and the Azure DevOps pipelines. David worked mainly as a backend developer, working on the ASP.NET Core, Cosmos DB, Blob Storage, CSS3/HTML5 and C# tech stack, but as the team was flexible aslo helped out on topics within Kubernetes and Cloud Architecture.
+
+ Backend Developer - Netlight
+
+While all offices have internally shared calendars, accessing what's going on in other offices is sometimes unnecessarily difficult. The Synchronicity Board is intended to provide a unified, cross-office view for all the events and initiatives being run at Netlight so that people can easily connect to events and initiatives across the Netlight sphere. Especially in a time of remote-first work environments, this is of high value.
+Developed multiple features for the application on the Node.js techstack. This includes Outlook integration through the Microsoft Graph API and an overhaul of the configuration and secret management of the application. David also helped in configuring the CI/CD pipeline in GitLab, using Terraform with AWS to enable infrastructure as code. 
+
+Nordea Life & Pensions AS
+Nordea Life & Pensions Norway AS is a Norwegian life insurance and pension company. Their main market is within service pension for private companies, together with risk coverage and retirement savings products in the private market.
+Pushed by the increasingly competitive market of banking services, Nordea saw the need to cut costs through new technology investments that included automation of processes through Robotic Process Automation technologies.
+
+BI Analyst
+Created Power BI reports for the stakeholders to enable a continuous information flow from the software robots and their daily tasks.  
+
+RPA Developer
+David's main role in the project was that of a RPA developer. This entailed development, maintenance and migration of RPA processes. To handle complex scenarios he also used his knowledge in .NET to close the gap between robot tasks and programming tasks. He also took up tasks related to project managemant to allow for a cost-efficient use of client resources.
+
+Robotics Developer - Capgemini Norge AS
+Capgemini is one of the biggest IT consultancies in the world, with over 240 000 employees.
+The goal of the project was to create a tech demo for customers that showcased the capabilities of a symbiotic relationship between chatbots and RPA robots. Using forefont technology as the Google NLP processor and Blue Prism RPA robots, the user of the system can ask for invoices, get reports on their status in the companies system and redeem their unpaid invoices.
+David was part of a team of two technical resources tasked with the implementation of the solution on the Blue Prism platform and the Dialogflow platform (Google NLP). Further, they were tasked with implementing the interaction layer (Google Cloud) between the chatbot platform and the RPA platform. The project resulted in a tech demo were the users can interact with a RPA robot through Googles chatbot service Dialogflow. 
+
+Simulation Developer - Scout Drone Inspection
+Scout Drone Inspection AS is a startup company, collaborating with the Norwegian University of Science and Technology. The goal of the company is to develop autonomous drones that can provide complete visual inspection for enclosed and poorly lit environments.
+To create cost efficient ways of testing their newest designs for their drones, a simulation environment for the drones was suggested that utilised current innovations in drone modelling and 3D physics.
+To help with the expansion of their simulation toolbox, David was tasked with creating a model for a new radar sensor for the drone and simulating the interaction with the 3D environment. David created the model in Gazebo and integrated it into their ROS and LSTS toolchain, which allowed for advanced control algorithms to be used by the drone when simulated.

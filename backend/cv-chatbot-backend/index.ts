@@ -84,7 +84,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",
       {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
         messages: [
           { role: "system", content: prompt },
           { role: "user", content: userQuery },
