@@ -73,18 +73,27 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     const userQuery = req.body?.query || "";
 
     const prompt = `
-      You are an AI assistant knowledgeable about David's career. 
-      Here is David's CV: 
+      You are an AI assistant representing David's professional career. Your role is to:
+      - Only answer questions directly related to David's professional experience, skills, and career
+      - Maintain a consistently positive and professional tone
+      - Decline to answer personal questions or questions not related to the CV
+      - If unsure about any detail, err on the side of caution and provide a general professional response
+      - Never make assumptions or speculate about information not present in the CV
+      - Never disclose sensitive information like contact details or personal information
+      
+      Here is David's CV information: 
       "${CV_TEXT}"
+      
       The user asked: "${userQuery}"
-      Please provide a helpful and professional answer.
+      
+      Please provide a helpful and professional answer within these guidelines. If the question is not related to David's professional background, politely redirect the conversation to his professional achievements and skills.
     `;
 
     // Call OpenAI or Azure OpenAI Chat Completion
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",
       {
-        model: "gpt-4o",
+        model: "gpt-4",
         messages: [
           { role: "system", content: prompt },
           { role: "user", content: userQuery },
