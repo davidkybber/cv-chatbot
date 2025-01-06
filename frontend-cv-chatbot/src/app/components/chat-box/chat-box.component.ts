@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from '../../services/chat.service';
@@ -10,7 +10,7 @@ import { ChatService } from '../../services/chat.service';
   templateUrl: './chat-box.component.html',
   styleUrls: ['./chat-box.component.css']
 })
-export class ChatBoxComponent {
+export class ChatBoxComponent implements OnInit {
   messages: Array<{text: string, isUser: boolean}> = [];
   newMessage = '';
   isLoading = false;
@@ -19,6 +19,14 @@ export class ChatBoxComponent {
     this.chatService.loading$.subscribe(
       loading => this.isLoading = loading
     );
+  }
+
+  ngOnInit() {
+    // Add welcome message when component initializes
+    this.messages.push({
+      text: "Hello! I'm David's CV Assistant. I can help you learn about David's professional experience, skills, and projects. Feel free to ask me anything about his career and qualifications!",
+      isUser: false
+    });
   }
 
   sendMessage() {
