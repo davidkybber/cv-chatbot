@@ -1,12 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from '../../services/chat.service';
-
-interface Message {
-  content: string;
-  isUser: boolean;
-}
 
 @Component({
   selector: 'app-chat-box',
@@ -15,61 +10,35 @@ interface Message {
   templateUrl: './chat-box.component.html',
   styleUrls: ['./chat-box.component.css']
 })
-export class ChatBoxComponent implements OnInit, AfterViewChecked {
-  messages: Message[] = [];
-  inputMessage = '';
-  @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
+export class ChatBoxComponent {
+  messages: Array<{text: string, isUser: boolean}> = [];
+  newMessage = '';
+  isLoading = false;
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService) {
+    this.chatService.loading$.subscribe(
+      loading => this.isLoading = loading
+    );
+  }
 
-  ngOnInit() {
-    this.messages.push({
-      content: "How may I assist you with David's CV information?",
-      isUser: false
+  sendMessage() {
+    if (!this.newMessage.trim()) return;
+
+    const userMessage = this.newMessage;
+    this.messages.push({ text: userMessage, isUser: true });
+    this.newMessage = '';
+
+    this.chatService.sendMessage(userMessage).subscribe({
+      next: (response) => {
+        this.messages.push({ text: response.answer, isUser: false });
+      },
+      error: (error) => {
+        this.messages.push({ 
+          text: 'Sorry, I encountered an error. Please try again.',
+          isUser: false 
+        });
+        console.error('Error:', error);
+      }
     });
-  }
-
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
-
-  private scrollToBottom(): void {
-    try {
-      this.messagesContainer.nativeElement.scrollTop = 
-        this.messagesContainer.nativeElement.scrollHeight;
-    } catch(err) {}
-  }
-
-  async sendMessage() {
-    if (!this.inputMessage.trim()) return;
-
-    // Add user message
-    this.messages.push({
-      content: this.inputMessage,
-      isUser: true
-    });
-
-    const messageToSend = this.inputMessage;
-    this.inputMessage = '';
-
-    try {
-      this.chatService.sendMessage(messageToSend).subscribe(
-        response => {
-          this.messages.push({
-            content: response.answer,
-            isUser: false
-          });
-        },
-        error => {
-          console.error('Error:', error);
-          this.messages.push({
-            content: "Sorry, I couldn't process your request at the moment.",
-            isUser: false
-          });
-        }
-      );
-    } catch (error) {
-      console.error('Error:', error);
-    }
   }
 } 
