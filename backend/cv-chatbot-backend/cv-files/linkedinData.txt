@@ -1,9 +1,15 @@
 Linkedin Data:
 
+Cloud & Backend Engineer
+Cloud & Backend Engineer
+Jan 2025 - Present · 2 mosJan 2025 to Present · 2 mos
+Munich, Bavaria, GermanyMunich, Bavaria, Germany
+Responsible for the Cloud Infrastructure and solution design for real-time IoT data transformation and enrichment (1m+ data points/min), enabling down-stream teams to read critical business data within milliseconds.
+Skills: Terraform · C4 · C# · ASP.NET Core · Azure Cloud · Event Hub · Technical Solution Design
 
 Full Stack Engineer @ E-learning Platform
 Netlight · Full-timeNetlight · Full-time
-Jul 2024 - Present · 7 mosJul 2024 to Present · 7 mos
+Jul 2024 - Present · 7 mosJul 2024 to mosJan 2025 · 7 mos
 München, Bayern, Deutschland · On-siteMünchen, Bayern, Deutschland · On-site
 I was part of a dedicated team that successfully built a modern e-learning platform from the ground up. We followed Agile methodologies to deliver features rapidly, ensuring on-time delivery and continuous improvement throughout the project.
 Skills: Domain-Driven Design · Solution Architecture · Datenbankdesign · Angular · IT Infrastructure Design · C# · ASP.NET Core · TypeScript

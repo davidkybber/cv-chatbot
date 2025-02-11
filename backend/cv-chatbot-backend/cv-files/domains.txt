@@ -4,3 +4,4 @@ Background
   Finance
   Robotics
   Telecom Embedded systems
+  Energy

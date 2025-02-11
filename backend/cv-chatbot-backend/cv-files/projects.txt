@@ -1,3 +1,6 @@
+Cloud & Backend Engineer @ Energy Client
+Responsible for the Cloud Infrastructure and solution design for real-time IoT data transformation and enrichment (1m+ data points/min), enabling down-stream teams to read critical business data within milliseconds
+
 Tech Lead - HvS-Consulting GmbH
 The client is a German security consultancy with hundreds of clients, incl. 50% of DAX corporations. 
 To meet the increasing demand from both new and existing clients for security training, the client sought new scalable ways to offer their learning material. The new Scalable eLearning Platform was created to meet these demands. The platform is completely self service and offers e-learning, live events and phishing simulations for successful awareness raising.
